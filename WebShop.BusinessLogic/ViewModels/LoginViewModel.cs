@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 
-namespace WEBSHOP.BUZNESLOGECTLEAR.ViewModels
-{
-    class LoginViewModel
+namespace WebShop.BusinessLogic.ViewModels
+{ 
+      public  class LoginViewModel
     {
         [Required]
         [Display(Name = "Email")]

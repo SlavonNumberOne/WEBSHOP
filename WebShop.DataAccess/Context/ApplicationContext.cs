@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using WebShopDataAccesLear;
 using WebShop.DataAccess.Entities;
+using WebShop.DataAccess.Initialization;
 
 namespace WebShop.DataAccess.Context
 {

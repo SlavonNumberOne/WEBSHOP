@@ -10,8 +10,8 @@ using WebShop.DataAccess.Context;
 namespace WebShop.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20191028171949_initializeDatabase")]
-    partial class initializeDatabase
+    [Migration("20191029075938_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -7,6 +7,8 @@
   <ItemGroup>
     <Compile Remove="Migrations\20191028165328_init1.cs" />
     <Compile Remove="Migrations\20191028165328_init1.Designer.cs" />
+    <Compile Remove="Migrations\20191028171949_initializeDatabase.cs" />
+    <Compile Remove="Migrations\20191028171949_initializeDatabase.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -19,6 +21,10 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>

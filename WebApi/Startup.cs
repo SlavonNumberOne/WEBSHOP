@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using WebShop.DataAccess.Context;
 using WebShopDataAccesLear;
-
+using WebShop.DataAccess.Initialization;
 
 namespace WebApi
 {
@@ -33,8 +33,10 @@ namespace WebApi
             services.AddMvc();
         }
 
+
+
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, DataBaseInitialization dataBase )
         {
             if (env.IsDevelopment())
             {
