@@ -27,13 +27,13 @@ namespace WebShop.BusinessLogic.Servises
         {
             return await _repository.Add(book);
         }
-        public async Task<Book> Update(Book book)
+        public Book Update(Book book)
         {
-            return await _repository.Update();
+            return _repository.Update(book);
         }
-        public async Task<bool> Delete(string id)
+        public  bool Delete(string id)
         {
-            return await _repository.Delete(id);
+            return  _repository.Delete(id);
         }
 
     }

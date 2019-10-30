@@ -16,7 +16,6 @@ namespace WebApi.Controllers
         // GET: /<controller>/
         public Task<IEnumerable<Book>> GetBooks()
         {
-
             return View();
         }
     }

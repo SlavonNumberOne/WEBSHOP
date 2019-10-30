@@ -6,12 +6,12 @@ using WebShop.DataAccess.Entities;
 
 namespace WebShop.DataAccess.Interfaces
 {
-  public  interface IBookRepository
+   public interface IOrderItemRepositive
     {
-        Task<IEnumerable<Book>> Get();
-        Task<Book> GetById(string id);
-        Task<Book> Add(Book book);
-        Book Update(Book book);
+        Task<IEnumerable<OrderItem>> GetOrd();
+        Task<OrderItem> GetById(string id);
+        OrderItem Update(OrderItem orderitem);
         bool Delete(string id);
     }
 }
+

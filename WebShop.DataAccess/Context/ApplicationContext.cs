@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using WebShopDataAccesLear;
 using WebShop.DataAccess.Entities;
-using WebShop.DataAccess.Initialization;
 
 namespace WebShop.DataAccess.Context
 {
@@ -19,7 +18,8 @@ namespace WebShop.DataAccess.Context
         public DbSet<UserRole> UserRoles { get; set; }
         public DbSet<Author> Authors { get; set; }
         public DbSet<AuthorBook> AuthorBooks { get; set; }
-
+        public DbSet<Order> Orders { get; set;}
+        public DbSet<OrderItem> OrderItems { get; set; }
         
     }
 }
