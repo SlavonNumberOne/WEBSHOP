@@ -12,7 +12,7 @@ namespace WebShop.BusinessLogic.Servises
 {
    public class OrderService : IOrderService
     {
-        private readonly OrderRepository _ordrepository;
+        private readonly IOrderRepository _ordrepository;
 
         public OrderService(IOrderRepository ordrepository)
         {
@@ -22,21 +22,21 @@ namespace WebShop.BusinessLogic.Servises
         {
             return await _ordrepository.Get();
         }
-        public Task<Order> GetById(string id)
+        public async Task<Order> GetById(string id)
         {
-
+            return await _ordrepository.GetById(id);
         }
-        public Task<Order> Add(Order order)
+        public async Task<Order> Add(Order order)
         {
-
+            return await _ordrepository.Add(order);
         }
         public Order Update(Order order)
         {
-
+            return _ordrepository.Update(order);
         }
-        bool Delete(string id)
+        public bool Delete(string id)
         {
-
+            return _ordrepository.Delete(id);
         }
     }
 }

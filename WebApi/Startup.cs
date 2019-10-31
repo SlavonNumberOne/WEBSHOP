@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using WebShop.DataAccess.Context;
 using WebShopDataAccesLear;
 using WebShop.DataAccess.Initialization;
+using Microsoft.Extensions.Logging;
 
 namespace WebApi
 {
@@ -36,12 +37,14 @@ namespace WebApi
 
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, DataBaseInitialization dataBase )
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, DataBaseInitialization dataBase, ILoggerFactory loggerFactory)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
+            // other code remove for clarity 
+            loggerFactory.AddFile("Logs/mylog-{Date}.txt");
 
             app.UseHttpsRedirection();
 

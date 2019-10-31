@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using WebShop.BusinessLogic.Interface;
+using WebShop.BusinessLogic.Servises.Interface;
 using WebShop.DataAccess.Entities;
 using WebShop.DataAccess.Interfaces;
 
 namespace WebShop.BusinessLogic.Servises
 {
-    public class BookService : IBookservice
+    public class BookService : IBookService
     {
         private readonly IBookRepository _repository;
 

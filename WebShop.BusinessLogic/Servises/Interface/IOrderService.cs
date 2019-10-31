@@ -11,6 +11,5 @@ namespace WebShop.BusinessLogic.Servises.Interface
         Task<Order> Add(Order order);
         Order Update(Order order);
         bool Delete(string id);
-        Book GetBook();
     }
 }

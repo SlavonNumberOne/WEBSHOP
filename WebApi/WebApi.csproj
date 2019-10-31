@@ -10,9 +10,11 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.0.0" />
+    <PackageReference Include="Serilog.Extensions.Logging.File" Version="1.1.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\WebShop.BusinessLogic\WebShop.BusinessLogic.csproj" />
     <ProjectReference Include="..\WebShop.DataAccess\WebShop.DataAccess.csproj" />
   </ItemGroup>
 
