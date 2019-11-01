@@ -17,6 +17,10 @@ namespace WebShop.BusinessLogic.Servises
         {
             return await _authorrepository.GetAuthor();
         }
+        public async Task<Author> GetById(string id)
+        {
+            return await _authorrepository.GetByIdAuthor(id);
+        }
         public async Task<Author> AddAuthor(Author author)
         {
             return await _authorrepository.AddAuthor(author);

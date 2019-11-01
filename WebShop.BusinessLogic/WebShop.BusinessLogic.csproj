@@ -130,6 +130,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Base\BaseModel.cs" />
     <Compile Include="Servises\AccountService.cs" />
     <Compile Include="Servises\Interface\IAccountService.cs" />
     <Compile Include="Servises\Interface\IAuthorService.cs" />
@@ -152,6 +153,7 @@
       <Name>WebShop.DataAccess</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

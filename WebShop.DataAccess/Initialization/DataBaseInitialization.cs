@@ -10,9 +10,15 @@ namespace WebShop.DataAccess.Initialization
 {
     public class DataBaseInitialization
     {
-        public static void Initialize(ApplicationContext context)
+        private readonly ApplicationContext _context;
+
+        public DataBaseInitialization(ApplicationContext context)
         {
-            if (context.Books.Any())
+            _context = context;
+        }
+        public void Initialize()
+        {
+            if (_context.Books.Any())
             {         
                 return;   // DB has been seeded
             }
@@ -25,9 +31,9 @@ namespace WebShop.DataAccess.Initialization
 
             foreach (Book b in Books)
             {
-                context.Books.Add(b);
+                _context.Books.Add(b);
             }
-            context.SaveChanges();
+            _context.SaveChanges();
         }
     }
 }

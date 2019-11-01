@@ -2,9 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+//using System.Web.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using WebShop.BusinessLogic.Servises;
+using WebShop.BusinessLogic.Servises.Interface;
 using WebShop.DataAccess.Context;
 using WebShop.DataAccess.Entities;
+
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -12,51 +17,48 @@ namespace WebApi.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+
     public class BookController : ControllerBase
     {
-        ApplicationContext ibookservice;
-
-        // GET: /<controller>/
-        public BookController(ApplicationContext context)
+        private readonly ILogger<BookController> _logger;
+        public BookController(ILogger<BookController> logger)
         {
-           ibookservice = context;
-            if (!ibookservice.Books.Any())
-            {
-                ibookservice.Books.Add(new Book { Name = "С#", Author = "Пушкин", Price = 200, Year = 1998 });
-                ibookservice.Books.Add(new Book { Name = " Красная шапочка", Author = "Петрович", Price = 21000, Year = 1995 });
-                ibookservice.SaveChanges();
-            }
+            _logger = logger;
+        }
+
+        private readonly IBookService _ibookservice ;
+        public BookController(IBookService ibookservice)
+        {
+            _ibookservice = ibookservice;
         }
         [HttpGet]
-        public async Task<IEnumerable<Book>> GetBooks()
+        public async Task<IActionResult> Get()
         {
-            return ibookservice.Books.ToList();
+            return Ok(await _ibookservice.Get());
+        }
+        [HttpGet]
+        public async Task<IActionResult> GetById(string id)
+        {
+            return Ok(await _ibookservice.GetById(id));
            
         }
-        // POST 
         [HttpPost]
-        public IActionResult Post([FromBody]Book book)
+        public async Task<IActionResult> Add(Book book)
         {
-            if (book == null)
-            {
-                ModelState.AddModelError("", "Не указаны данные для книги");
-                return BadRequest(ModelState);
-            }
-            // обработка частных случаев валидации
-            if (book.Name == "admin")
-            {
-                ModelState.AddModelError("Name", "Недопустимое имя пользователя - admin");
-            }
-            // если есть лшибки - возвращаем ошибку 400
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
-            // если ошибок нет, сохраняем в базу данных
-            ibookservice.Books.Add(book);
-            ibookservice.SaveChanges();
-            return Ok(book);
+            return Ok(await _ibookservice.Add(book));
+     
         }
-        
-    }
+        [HttpPut]
+        public IActionResult Update(Book book)
+        {
+          return Ok(_ibookservice.Update(book)); 
+        } 
+
+        [HttpDelete]
+        public IActionResult Delete(string id)
+        {
+          return Ok( _ibookservice.Delete(id));
+        }
+    } 
 }
 

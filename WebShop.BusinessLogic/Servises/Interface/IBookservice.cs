@@ -7,7 +7,7 @@ using WebShop.DataAccess.Entities;
 
 namespace WebShop.BusinessLogic.Servises.Interface
 {
-    interface IBookService
+   public interface IBookService
     {
         Task<IEnumerable<Book>> Get();
         Task<Book> GetById(string id);
